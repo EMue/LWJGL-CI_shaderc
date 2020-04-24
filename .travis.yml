@@ -40,9 +40,9 @@ matrix:
     - strip libshaderc/libshaderc_shared.so
     - strip libshaderc_spvc/libshaderc_spvc_shared.so
     - "git log --first-parent --pretty=format:%H HEAD~2..HEAD~1 > revision.git"
-    - "aws s3 cp libshaderc/libshaderc_shared.so s3://build.lwjgl.org/nightly/linux/x64/libshaderc.so $S3_PARAMS"
-    - "aws s3 cp libshaderc_spvc/libshaderc_spvc_shared.so s3://build.lwjgl.org/nightly/linux/x64/libshaderc_spvc.so $S3_PARAMS"
-    - "aws s3 cp revision.git s3://build.lwjgl.org/nightly/linux/x64/libshaderc.so.git $S3_PARAMS"
+    #- "aws s3 cp libshaderc/libshaderc_shared.so s3://build.lwjgl.org/nightly/linux/x64/libshaderc.so $S3_PARAMS"
+    #- "aws s3 cp libshaderc_spvc/libshaderc_spvc_shared.so s3://build.lwjgl.org/nightly/linux/x64/libshaderc_spvc.so $S3_PARAMS"
+    #- "aws s3 cp revision.git s3://build.lwjgl.org/nightly/linux/x64/libshaderc.so.git $S3_PARAMS"
 
   # -----------------
   - name: "Linux arm32"
@@ -72,9 +72,9 @@ matrix:
     - arm-linux-gnueabihf-strip libshaderc/libshaderc_shared.so
     - arm-linux-gnueabihf-strip libshaderc_spvc/libshaderc_spvc_shared.so
     - "git log --first-parent --pretty=format:%H HEAD~2..HEAD~1 > revision.git"
-    - "aws s3 cp libshaderc/libshaderc_shared.so s3://build.lwjgl.org/nightly/linux/arm32/libshaderc.so $S3_PARAMS"
-    - "aws s3 cp libshaderc_spvc/libshaderc_spvc_shared.so s3://build.lwjgl.org/nightly/linux/arm32/libshaderc_spvc.so $S3_PARAMS"
-    - "aws s3 cp revision.git s3://build.lwjgl.org/nightly/linux/arm32/libshaderc.so.git $S3_PARAMS"
+    #- "aws s3 cp libshaderc/libshaderc_shared.so s3://build.lwjgl.org/nightly/linux/arm32/libshaderc.so $S3_PARAMS"
+    #- "aws s3 cp libshaderc_spvc/libshaderc_spvc_shared.so s3://build.lwjgl.org/nightly/linux/arm32/libshaderc_spvc.so $S3_PARAMS"
+    #- "aws s3 cp revision.git s3://build.lwjgl.org/nightly/linux/arm32/libshaderc.so.git $S3_PARAMS"
 
   # -----------------
   - name: "Linux arm64"
@@ -104,9 +104,9 @@ matrix:
     - aarch64-linux-gnu-strip libshaderc/libshaderc_shared.so
     - aarch64-linux-gnu-strip libshaderc_spvc/libshaderc_spvc_shared.so
     - "git log --first-parent --pretty=format:%H HEAD~2..HEAD~1 > revision.git"
-    - "aws s3 cp libshaderc/libshaderc_shared.so s3://build.lwjgl.org/nightly/linux/arm64/libshaderc.so $S3_PARAMS"
-    - "aws s3 cp libshaderc_spvc/libshaderc_spvc_shared.so s3://build.lwjgl.org/nightly/linux/arm64/libshaderc_spvc.so $S3_PARAMS"
-    - "aws s3 cp revision.git s3://build.lwjgl.org/nightly/linux/arm64/libshaderc.so.git $S3_PARAMS"
+    #- "aws s3 cp libshaderc/libshaderc_shared.so s3://build.lwjgl.org/nightly/linux/arm64/libshaderc.so $S3_PARAMS"
+    #- "aws s3 cp libshaderc_spvc/libshaderc_spvc_shared.so s3://build.lwjgl.org/nightly/linux/arm64/libshaderc_spvc.so $S3_PARAMS"
+    #- "aws s3 cp revision.git s3://build.lwjgl.org/nightly/linux/arm64/libshaderc.so.git $S3_PARAMS"
 
   # -----------------
   - name: "Linux mips64"
@@ -136,9 +136,9 @@ matrix:
     - mips64el-linux-gnuabi64-strip libshaderc/libshaderc_shared.so
     - mips64el-linux-gnuabi64-strip libshaderc_spvc/libshaderc_spvc_shared.so
     - "git log --first-parent --pretty=format:%H HEAD~2..HEAD~1 > revision.git"
-    - "aws s3 cp libshaderc/libshaderc_shared.so s3://build.lwjgl.org/nightly/linux/mips64/libshaderc.so $S3_PARAMS"
-    - "aws s3 cp libshaderc_spvc/libshaderc_spvc_shared.so s3://build.lwjgl.org/nightly/linux/mips64/libshaderc_spvc.so $S3_PARAMS"
-    - "aws s3 cp revision.git s3://build.lwjgl.org/nightly/linux/mips64/libshaderc.so.git $S3_PARAMS"
+    #- "aws s3 cp libshaderc/libshaderc_shared.so s3://build.lwjgl.org/nightly/linux/mips64/libshaderc.so $S3_PARAMS"
+    #- "aws s3 cp libshaderc_spvc/libshaderc_spvc_shared.so s3://build.lwjgl.org/nightly/linux/mips64/libshaderc_spvc.so $S3_PARAMS"
+    #- "aws s3 cp revision.git s3://build.lwjgl.org/nightly/linux/mips64/libshaderc.so.git $S3_PARAMS"
 
   # -----------------
   - name: "Linux ppc64le"
@@ -168,9 +168,9 @@ matrix:
     - powerpc64le-linux-gnu-strip libshaderc/libshaderc_shared.so
     - powerpc64le-linux-gnu-strip libshaderc_spvc/libshaderc_spvc_shared.so
     - "git log --first-parent --pretty=format:%H HEAD~2..HEAD~1 > revision.git"
-    - "aws s3 cp libshaderc/libshaderc_shared.so s3://build.lwjgl.org/nightly/linux/ppc64le/libshaderc.so $S3_PARAMS"
-    - "aws s3 cp libshaderc_spvc/libshaderc_spvc_shared.so s3://build.lwjgl.org/nightly/linux/ppc64le/libshaderc_spvc.so $S3_PARAMS"
-    - "aws s3 cp revision.git s3://build.lwjgl.org/nightly/linux/ppc64le/libshaderc.so.git $S3_PARAMS"
+    #- "aws s3 cp libshaderc/libshaderc_shared.so s3://build.lwjgl.org/nightly/linux/ppc64le/libshaderc.so $S3_PARAMS"
+    #- "aws s3 cp libshaderc_spvc/libshaderc_spvc_shared.so s3://build.lwjgl.org/nightly/linux/ppc64le/libshaderc_spvc.so $S3_PARAMS"
+    #- "aws s3 cp revision.git s3://build.lwjgl.org/nightly/linux/ppc64le/libshaderc.so.git $S3_PARAMS"
 
   # -----------------
   - name: "macOS"
@@ -194,6 +194,6 @@ matrix:
     - strip -u -r libshaderc/libshaderc_shared.dylib
     - strip -u -r libshaderc_spvc/libshaderc_spvc_shared.dylib
     - "git log --first-parent --pretty=format:%H HEAD~2..HEAD~1 > revision.git"
-    - "aws s3 cp libshaderc/libshaderc_shared.dylib s3://build.lwjgl.org/nightly/macosx/x64/libshaderc.dylib $S3_PARAMS"
-    - "aws s3 cp libshaderc_spvc/libshaderc_spvc_shared.dylib s3://build.lwjgl.org/nightly/macosx/x64/libshaderc_spvc.dylib $S3_PARAMS"
-    - "aws s3 cp revision.git s3://build.lwjgl.org/nightly/macosx/x64/libshaderc.dylib.git $S3_PARAMS"
+    #- "aws s3 cp libshaderc/libshaderc_shared.dylib s3://build.lwjgl.org/nightly/macosx/x64/libshaderc.dylib $S3_PARAMS"
+    #- "aws s3 cp libshaderc_spvc/libshaderc_spvc_shared.dylib s3://build.lwjgl.org/nightly/macosx/x64/libshaderc_spvc.dylib $S3_PARAMS"
+    #- "aws s3 cp revision.git s3://build.lwjgl.org/nightly/macosx/x64/libshaderc.dylib.git $S3_PARAMS"
