@@ -165,6 +165,9 @@ matrix:
     - openssl aes-256-cbc -K $encrypted_3b8cb6da0fbe_key -iv $encrypted_3b8cb6da0fbe_iv -in .travis/id_rsa_deploy_travis.enc -out .travis/id_rsa_deploy_travis -d
 
     script:
+    - eval "$(ssh-agent -s)"
+    - chmod 600 .travis/id_rsa_deploy_travis
+    - ssh-add .travis/id_rsa_deploy_travis
     - python3 utils/git-sync-deps
     - mkdir build
     - cd build
@@ -176,6 +179,20 @@ matrix:
     #- "aws s3 cp libshaderc/libshaderc_shared.so s3://build.lwjgl.org/nightly/linux/ppc64le/libshaderc.so $S3_PARAMS"
     #- "aws s3 cp libshaderc_spvc/libshaderc_spvc_shared.so s3://build.lwjgl.org/nightly/linux/ppc64le/libshaderc_spvc.so $S3_PARAMS"
     #- "aws s3 cp revision.git s3://build.lwjgl.org/nightly/linux/ppc64le/libshaderc.so.git $S3_PARAMS"
+    - mkdir -p ../deploy
+    - cp libshaderc/libshaderc_shared.so ../deploy/libshaderc.so
+    - cp libshaderc_spvc/libshaderc_spvc_shared.so ../deploy/libshaderc_spvc.so
+    - cp revision.git ../deploy/libshaderc.so.git
+    - cd ../deploy
+    - git init
+    - git remote add origin git@github.com:EMue/lwjgl3-bin.git
+    - git fetch origin 0449e44c07e2bdf09e79f21c75a92f7d94b0e496
+    - git checkout 0449e44c07e2bdf09e79f21c75a92f7d94b0e496
+    - git branch ppc64le_nightly_shaderc
+    - git checkout ppc64le_nightly_shaderc
+    - git add libshaderc.so libshaderc_spvc.so libshaderc.so.git
+    - git commit -m "Deploy shaderc from Travis CI."
+    - git push --force origin ppc64le_nightly_shaderc
 
   # -----------------
   - name: "macOS"
